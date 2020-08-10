@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+    <a class="navbar-brand text-white">Expense Splitter</a>
+    <div class="ml-auto mr-2">
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{userInfo?.emailAddress}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <h1 class="dropdown-item hover-override">{{userInfo?.firstName}} {{userInfo?.lastName}}</h1>
+                <p class="dropdown-item font-weight-light hover-override">Mobile: {{userInfo?.countryCode}} {{userInfo?.mobileNumber}}</p>
+                <div class="dropdown-divider"></div>
+                <button (click)="logOut()" class="btn btn-dark float-right mr-2">Log out</button>
+            </div>
+        </div>
+
+    </div>
+</nav>

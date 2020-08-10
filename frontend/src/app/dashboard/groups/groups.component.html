@@ -1,0 +1,19 @@
+<app-header></app-header>
+<br />
+<br />
+<div class="top-fixed p-3 pt-4">
+    <span class="h4">Groups</span>
+    <button class="btn btn-dark float-right" (click)="newGroup()">New Group</button>
+</div>
+<br />
+<br />
+<br />
+<div class="list-group-flush layout centerize">
+    <div *ngFor="let group of groups" class="list-group-item action" (click)="goToGroupDetails(group)">
+        <p class="mb-0"><i style="vertical-align:middle"
+                class="fa {{getCategoryIcon(group.category)}} fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true"></i><span class="h5"
+                style="vertical-align:middle">{{group.groupName}}</span>
+        </p>
+    </div>
+</div>
+<br />

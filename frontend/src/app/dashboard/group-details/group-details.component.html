@@ -1,0 +1,25 @@
+<app-header></app-header>
+<br />
+<br />
+<div class="top-fixed p-3 pt-4">
+    <span class="h4">{{groupName}}</span>
+    <button class="btn btn-dark float-right mr-2" (click)="addExpense()">Add Expense</button>
+    <button class="btn btn-outline-dark float-right mr-2" (click)="goToBalances()">Balances</button>
+    <button class="btn btn-link float-right mr-2" (click)="viewUsers()">View Members</button>
+</div>
+<br />
+<br />
+<br />
+<div class="list-group-flush layout centerize">
+    <div *ngFor="let expense of expenses"
+        class="action list-group-item d-flex justify-content-between align-items-center"
+        (click)="goToExpenseDetails(expense)">
+        <span class="mb-0"><i style="vertical-align:middle"
+                class="fa {{getCategoryIcon(expense.category)}} fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true"></i><span class="h5"
+                style="vertical-align:middle">{{expense.expenseName}}</span></span><span
+            style="vertical-align:middle; font-size: 0.9rem;"
+            class="badge badge-dark badge-pill float-right">{{expense.amount}}</span>
+
+    </div>
+</div>
+<br />

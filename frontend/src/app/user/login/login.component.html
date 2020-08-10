@@ -1,0 +1,77 @@
+<app-home></app-home>
+<br />
+<br />
+<br />
+<br />
+<form class="layout centerize">
+    <h1 class="text-center font-weight-normal">Welcome Back</h1>
+    <br />
+    <br />
+    <div class="form-group centerize col-md-11">
+        <input type="email" class="form-control" id="login_email" name="emailAddress" [(ngModel)]="emailAddress"
+            placeholder="Email">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <input type="password" class="form-control" id="login_password" name="password" [(ngModel)]="password"
+        (keydown)="enterKey($event)" placeholder="Password">
+    </div>
+    <div *ngIf="spinInd" class="text-center">
+        <div class="spinner-border" role="status">
+        </div>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <button type="button" class="btn btn-dark btn-block" (click)="logIn()">Login</button>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <a href="" class="password-link font-weight-light float-right" data-toggle="modal"
+            data-target="#forgotPasswordModal">Forgot Password</a>
+    </div>
+</form>
+
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordLabel">Forgot Password</h5>
+                <button type="button" class="close" id="close_button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group centerize">
+                        <label for="forgotpassword_email">Email</label>
+                        <input type="email" class="form-control" id="forgotpassword_email" name="emailAddress"
+                            [(ngModel)]="emailAddress" [readonly]="codeInd || passwordInd"
+                            placeholder="Enter your email">
+                    </div>
+                    <div *ngIf="codeInd" class="form-group centerize">
+                        <label for="forgotpassword_code">Code</label>
+                        <input type="text" class="form-control" id="forgotpassword_code" name="verifyingCode"
+                            [(ngModel)]="verifyingCode" aria-describedby="forgotpassword_code_hint">
+                        <small id="forgotpassword_code_hint" class="form-text text-muted">Please provide the code that
+                            is sent in the mentioned Email</small>
+                    </div>
+                    <div *ngIf="passwordInd" class="form-group centerize">
+                        <label for="forgotpassword_newpassword">New Password</label>
+                        <input type="password" class="form-control" id="forgotpassword_newpassword" name="newPassword"
+                            [(ngModel)]="newPassword">
+                    </div>
+                    <div *ngIf="passwordInd" class="form-group centerize">
+                        <label for="forgotpassword_confirmpassword">Confirm New Password</label>
+                        <input type="password" class="form-control" id="forgotpassword_confirmpassword"
+                            name="confirmNewPassword" [(ngModel)]="confirmNewPassword">
+                    </div>
+                    <div *ngIf="spinInd" class="text-center">
+                        <div class="spinner-border" role="status">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark btn-block" (click)="submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

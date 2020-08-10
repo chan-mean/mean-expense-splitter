@@ -1,0 +1,36 @@
+<app-header></app-header>
+<br />
+<br />
+<br />
+<br />
+
+<form class="layout centerize">
+
+    <h1 class="text-center font-weight-normal">New Group</h1>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <label for="group_groupName">Group Name</label>
+        <input type="text" class="form-control" [(ngModel)]="groupName" name="groupName" id="group_groupName">
+    </div>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <div *ngFor="let category of categories" class="custom-control custom-radio custom-control-inline">
+            <input type="radio" [(ngModel)]="defaultCategory" value="{{category}}" name="{{category}}" id="{{category}}"
+                class="custom-control-input" (ngModelChange)="choose($event)">
+            <label class="custom-control-label" for="{{category}}">{{category}}</label>
+        </div>
+    </div>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <label for="group_description">Description</label>
+        <textarea class="form-control" [(ngModel)]="description" name="description" id="group_description"
+            rows="4"></textarea>
+    </div>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <span *ngIf="createInd" class="spinner-border float-right" role="status"></span>
+        <button type="button" class="btn btn-dark float-right" (click)="create()">Create Group</button>
+    </div>
+    <br />
+</form>
+<br />

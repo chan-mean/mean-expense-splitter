@@ -1,0 +1,109 @@
+<app-header></app-header>
+<br />
+<br />
+<div class="top-fixed p-3 pt-4">
+    <span class="h4">{{groupName}}</span>
+</div>
+<br />
+<br />
+<br />
+<br />
+
+<form class="layout centerize">
+
+    <h1 class="text-center font-weight-normal">Expense</h1>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <label for="expense_expenseName">Expense Name</label>
+        <input type="text" class="form-control" [(ngModel)]="expenseName" name="expenseName" id="expense_expenseName">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="expense_category">Category</label>
+        <select id="expense_category" class="form-control" name="category" [(ngModel)]="category">
+            <option selected>Choose category..</option>
+            <option *ngFor="let category of categories" value="{{category}}">{{category}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="expense_lendingUser">Payers</label>
+        <select id="expense_lendingUser" class="form-control" name="lendingUserId" [(ngModel)]="lendingUserId">
+            <option selected>Choose member..</option>
+            <option *ngFor="let user of membersInGroup" value="{{user.userId}}">{{user.firstName}} {{user.lastName}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group centerize col-md-11 mb-0">
+        <label for="expense_category">Members Included</label>
+        <button class="btn btn-link float-right p-0" (click)="includeMember()">Include Member</button>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <div class="member-box">
+            <div *ngFor="let member of membersIncluded" class="list-group-item action">
+                <p class="mb-0 p-1"><span class="font-weight-normal"
+                        style="vertical-align:middle">{{member.fullName}}</span><i class="fa fa-times float-right"
+                        (click)="removeMember(member.userId)"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="expense_amount">Amount</label>
+        <input type="text" class="form-control" [(ngModel)]="amount" name="amount" id="expense_amount">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="expense_transactionDate">Transaction Date</label>
+        <input [(ngModel)]="transactionDate" name="transactionDate" [owlDateTime]="owlTransaction"
+            [owlDateTimeTrigger]="owlTransaction" class="form-control" id="expense_transactionDate">
+        <owl-date-time [pickerType]="'calendar'" #owlTransaction></owl-date-time>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="expense_notes">Notes</label>
+        <textarea class="form-control" [(ngModel)]="notes" name="notes" id="expense_notes" rows="4"></textarea>
+    </div>
+    <br />
+    <div *ngIf="!expenseId" class="form-group centerize col-md-11">
+        <span *ngIf="createInd" class="spinner-border float-right" role="status"></span>
+        <button type="button" class="btn btn-dark float-right" (click)="createExpense()">Add Expense</button>
+    </div>
+    <div *ngIf="expenseId" class="form-group centerize col-md-11">
+        <span *ngIf="updateInd" class="spinner-border float-right" role="status"></span>
+        <button type="button" class="btn btn-dark float-right" (click)="updateExpense()">Update Expense</button>
+    </div>
+    <br />
+</form>
+<br />
+
+<ng-template #memberModal let-close="close">
+
+    <div class="modal-header">
+        <h5 class="modal-title">Members</h5>
+        <button type="button" class="close" id="close_button" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body" style="height:600px">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let member of membersInGroup" class="list-group-item">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input users-checkbox" id="user_{{member.userId}}"
+                        value="{{member.userId}}">
+                    <label class="custom-control-label" for="user_{{member.userId}}">{{member.firstName}}
+                        {{member.lastName}}</label>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="modal-footer">
+
+        <button ngbAutofocus type="button" class="btn btn-dark" (click)="includeMembers(close)">
+            Add
+        </button>
+
+    </div>
+
+</ng-template>

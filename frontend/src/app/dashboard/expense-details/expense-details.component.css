@@ -1,0 +1,25 @@
+.layout {
+    padding: 2% 1%;
+    width:90%;
+    max-width: 800px;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .member-box {
+    height: 100px;
+    overflow:auto;
+    border-style: solid;
+    border: 1px solid #ced4da;
+  }
+
+  .fa-times {
+    cursor: pointer;
+  }
+
+  .btn-link {
+    color: black;
+    text-decoration: underline;
+  }
+  .btn-link:hover {
+    text-decoration-color:white;
+  }

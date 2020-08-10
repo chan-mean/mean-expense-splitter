@@ -1,0 +1,15 @@
+.layout {
+    padding:1%;
+    width:97%;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .list-group-item {
+      border:1px solid rgba(0, 0, 0, 0.05)
+  }
+  .a-action {
+    color: black;
+  }
+  .a-action:hover {
+    text-decoration-color:gray;
+  }

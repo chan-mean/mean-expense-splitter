@@ -1,0 +1,19 @@
+.layout {
+    padding: 1%;
+    width:90%;
+    max-width: 800px;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .member-box {
+    border-style: solid;
+    border: 1px solid #ced4da;
+  }
+
+  .a-action {
+    color: black;
+  }
+  .a-action:hover {
+    text-decoration-color:gray;
+  }
+  

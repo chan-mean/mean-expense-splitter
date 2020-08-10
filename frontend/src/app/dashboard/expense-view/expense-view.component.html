@@ -1,0 +1,64 @@
+<app-header></app-header>
+<br />
+<br />
+<div class="top-fixed p-3 pt-4">
+    <span class="h4">{{groupName}}</span>
+</div>
+<br />
+<br />
+<br />
+<br />
+
+<div class="layout centerize">
+    <div class="text-center jumbotron display-4">{{expenseDetails.expenseName}}</div>
+    <div style="font-size: 1.4rem;" class="ml-2">
+        <strong>{{lendingMemberName}}</strong> paid <strong>{{expenseDetails.amount}}</strong> on
+        {{formatDate(expenseDetails.transactionDate)}}
+    </div>
+    <br />
+    <div class="centerize col-md-11">{{expenseDetails.notes}}</div>
+    <hr />
+    <div class="centerize col-md-11">
+        <label class="mt-1 h6 mb-3" for="">Split Details</label>
+        <div class="member-box">
+            <div *ngFor="let member of borrowingMemberData" class="list-group-item action">
+                <p class="mb-0 p-1"><span class="font-weight-light"
+                        style="vertical-align:middle"><strong>{{member.borrowingMemberName}}</strong> owes
+                        <strong>{{member.borrowingAmount}}</strong></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div id="accordion" class="card">
+        <div class="card-header">
+            <a data-toggle="collapse" href="#showHistory" aria-expanded="false" class="a-action"
+                style="font-size: 1.1rem;">Expense History</a>
+        </div>
+        <div id="showHistory" class="collapse" data-parent="#accordion">
+            <div *ngFor="let history of expenseHistory" class="card-body">
+                <span class="font-weight-light">- {{history}}</span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-dark float-right" (click)="updateExpense()">Edit Expense</button>
+    <span *ngIf="deleteInd" class="spinner-border float-left" role="status"></span>
+    <button class="btn btn-outline-dark" (click)="openDeleteConfirmation()">Delete Expense</button>
+</div>
+<br />
+<ng-template #deleteModal let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Are yo sure you want to delete this expense?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-outline-dark" (click)="close('Yes')">Yes</button>
+        <button ngbAutofocus class="btn btn-dark" (click)="close('No')">No</button>
+    </div>
+</ng-template>

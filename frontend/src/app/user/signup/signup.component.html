@@ -1,0 +1,57 @@
+<app-home></app-home>
+<br />
+<br />
+<br />
+<form class="layout centerize">
+    <h1 class="text-center font-weight-normal">Register for Expense Splitter</h1>
+    <br />
+    <div class="form-group centerize col-md-11">
+        <label for="signup_firstname">First Name</label>
+        <input type="text" class="form-control" id="signup_firstname" name="firstName" [(ngModel)]="firstName"
+            placeholder="First Name">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="signup_lastname">Last Name</label>
+        <input type="text" class="form-control" id="signup_lastname" name="lastName" [(ngModel)]="lastName"
+            placeholder="Last Name">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="signup_email">Email Address</label>
+        <input type="email" class="form-control" id="signup_email" name="emailAddress" [(ngModel)]="emailAddress"
+            placeholder="Email Address (e.g. example@mail.com)">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="signup_password">Password</label>
+        <input type="password" class="form-control" id="signup_password" name="password" [(ngModel)]="password"
+            placeholder="Password">
+    </div>
+    <div class="form-group centerize col-md-11">
+        <label for="signup_country">Country</label>
+        <select id="signup_country" class="form-control" #country name="countryCode"
+            [(ngModel)]="countryCode">
+            <option selected>Choose country..</option>
+            <option *ngFor="let countryCode of countryCodeList" value="{{countryCode.code}}">{{countryCode.country}}
+            </option>
+        </select>
+    </div>
+    <div class="centerize col-md-11">
+        <label for="signup_mobile">Mobile Number</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" *ngIf="(countryCode !== 'Choose country..') && (countryCode !== '')"
+                    id="signup_code">{{countryCode}}</span>
+            </div>
+            <input type="text" class="form-control" id="signup_mobile" name="mobileNumber" [(ngModel)]="mobileNumber"
+                placeholder="Mobile Number (e.g. 1234567890)">
+        </div>
+    </div>
+    <br />
+    <div *ngIf="spinInd" class="centerize col-md-11 col-3">
+        <div class="spinner-border" role="status">
+        </div>
+    </div>
+    <div class="form-group centerize col-md-11">
+        <button class="btn btn-dark col-3" (click)="signUp()">Sign up</button>
+    </div>
+</form>
+<br />

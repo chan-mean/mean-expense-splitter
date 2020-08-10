@@ -1,0 +1,9 @@
+.action:hover {
+    background-color: #f8f9fa;
+}
+
+.layout {
+    padding-top: 0.5%;
+    width:97%;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
