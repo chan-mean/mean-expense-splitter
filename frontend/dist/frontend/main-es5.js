@@ -329,7 +329,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, AppService);
 
         this.http = http;
-        this.url = "http://".concat(location.hostname, ":3000");
+        this.url = "http://api.velchandru.com";
 
         this.getUserInfoFromLocalStorage = function () {
           if (localStorage.getItem('userInfo')) return JSON.parse(localStorage.getItem('userInfo'));
@@ -4626,7 +4626,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _classCallCheck(this, SocketService);
 
       this.http = http;
-      this.url = "http://".concat(location.hostname, ":3000");
+      this.url = "http://api.velchandru.com";
 
       this.listen = function (eventName) {
         return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {

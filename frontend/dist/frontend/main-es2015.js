@@ -177,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 class AppService {
     constructor(http) {
         this.http = http;
-        this.url = `http://${location.hostname}:3000`;
+        this.url = `http://api.velchandru.com`;
         this.getUserInfoFromLocalStorage = () => {
             if (localStorage.getItem('userInfo'))
                 return JSON.parse(localStorage.getItem('userInfo'));
@@ -2488,7 +2488,7 @@ __webpack_require__.r(__webpack_exports__);
 class SocketService {
     constructor(http) {
         this.http = http;
-        this.url = `http://${location.hostname}:3000`;
+        this.url = `http://api.velchandru.com`;
         this.listen = (eventName) => {
             return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
                 this.socket.on(eventName, (data) => {
