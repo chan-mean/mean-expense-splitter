@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class SocketService {
 
-  public url = `http://${location.hostname}:3000`;
+  public url = `http://api.velchandru.com`;
 
   public socket;
 

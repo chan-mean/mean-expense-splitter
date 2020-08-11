@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
 
-  private url: String = `http://${location.hostname}:3000`;
+  private url: String = `http://api.velchandru.com`;
 
   constructor(public http: HttpClient) { }
 
